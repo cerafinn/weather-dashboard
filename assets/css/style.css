@@ -1,0 +1,27 @@
+header {
+  width: 100%;
+  background-color: #302d4b;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+header h1 {
+  color: white;
+  font-size: 36px;
+  text-align: center;
+}
+
+/* Sidebar style starts */
+.sidebar h3 {
+  font-size: 24px;
+  color: black;
+  padding-bottom: 10px;
+}
+
+.sidebar {
+  background-color: rgb(226, 226, 226);
+}
+
+
+/* Main style starts */
