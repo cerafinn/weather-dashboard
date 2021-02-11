@@ -23,5 +23,19 @@ header h1 {
   background-color: rgb(226, 226, 226);
 }
 
+.future-weather {
+  color: white;
+  background-color: rgb(40, 126, 255);
+}
+
+.weather-card {
+  width: 20%;
+}
+
+#today-uv-index {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
 
 /* Main style starts */

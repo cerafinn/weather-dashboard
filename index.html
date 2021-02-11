@@ -14,14 +14,14 @@
   <div class="container">
     <div class="row">
       <div class="sidebar col-md-3">
-        <form class="mb-3">
+        <form class="mb-3" id="search-form">
           <h3 class="mb-3">Search For a City:</h3>
-          <input type="text" class="form-control searchCity mb-2" placeholder="City Name">
+          <input type="text" class="form-control mb-2" placeholder="City Name" id="city-name">
           <button class="btn btn-primary searchBtn">Search</button>
         </form>
 
         <div class="card mb-2">
-          <ul id="previousCity" class="list-group">
+          <ul id="previous-cities" class="list-group">
             <!-- append cities searched -->
             <li class="list-group-item">city one</li>
             <li class="list-group-item">city two</li>
@@ -31,56 +31,24 @@
 
       <div class="main col-md-9">
         <div id="currentCity" class="card">
-          <h2 class="cityName-Date-Icon">City (Date) Icon</h2>
-          Temperature: <span id="temp"></span>
-          Humidity: <span id="humidity"></span>
-          Wind Speed: <span id="wind-speed"></span>
-          UV Index: <span id="uv-index"></span>
+          <h2 id="name-date-icon">City (Date) Icon</h2>
+          
+          <p>Temperature: <span id="today-temp"></span></p>
+          
+          <p>Humidity: <span id="today-humidity"></span></p>
+          
+          <p>Wind Speed: <span id="today-wind-speed"></span></p>
+          
+          <p>UV Index: <span id="today-uv-index">0.00</span></p>
+
         </div>
+
         <div id="future-forecast" class="row mt-4">
           <h2>5-Day Forecast</h2>
-          <div class="row" id="five-day">
-            <div class="col-sm-2">
-              <div class="card">
-                Date <br>
-                Icon <br>
-                temp <br>
-                humidity <br>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              <div class="card">
-                Date <br>
-                Icon <br>
-                temp <br>
-                humidity <br>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              <div class="card">
-                Date <br>
-                Icon <br>
-                temp <br>
-                humidity <br>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              <div class="card">
-                Date <br>
-                Icon <br>
-                temp <br>
-                humidity <br>
-              </div>
-            </div>
-            <div class="col-sm-2">
-              <div class="card">
-                Date <br>
-                Icon <br>
-                temp <br>
-                humidity <br>
-              </div>
-            </div>
-          </div>
+        </div>
+
+        <div class="row justify-content-between" id="five-day">
+          <!-- 5-day weather forecase dynamically appended -->
         </div>
       </div>
     </div>
