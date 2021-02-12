@@ -63,7 +63,7 @@ var displayWeather = function(weather) {
 
   var city = weather.name;
   var date = moment().format('L');
-  var icon = 'http://openweathermap.org/img/wn/' + weather.weather[0].icon + '.png';
+  var icon = 'https://openweathermap.org/img/wn/' + weather.weather[0].icon + '.png';
   var tempF = ((weather.main.temp - 273.15) * 1.8 + 32).toFixed(2);
   var humidity = weather.main.humidity;
   var windSpeed = weather.wind.speed;
@@ -73,7 +73,7 @@ var displayWeather = function(weather) {
   $("#today-humidity").text(humidity);
   $("#today-wind-speed").text(windSpeed);
 
-  var uvApi = 'http://api.openweathermap.org/data/2.5/onecall?lat=' + weather.coord.lat + '&lon=' + weather.coord.lon + '&exclude=minutely,hourly,daily,alerts&appid=' + apiKey;
+  var uvApi = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + weather.coord.lat + '&lon=' + weather.coord.lon + '&exclude=minutely,hourly,daily,alerts&appid=' + apiKey;
   fetch(uvApi)
   .then(function(response) {
     if (response.ok) {
@@ -108,7 +108,7 @@ var displayFiveDay = function(forecast) {
   for(var i = 0; i < forecast.list.length; i+=8 ) {
     var date = moment(forecast.list[i].dt_txt).format('L');
     var tempF = ((forecast.list[i].main.temp - 273.15) * 1.8 + 32).toFixed(2);
-    var icon = 'http://openweathermap.org/img/wn/' + forecast.list[i].weather[0].icon + '.png';
+    var icon = 'https://openweathermap.org/img/wn/' + forecast.list[i].weather[0].icon + '.png';
     var humidity = forecast.list[i].main.humidity;
 
     $("#five-day").append(`
