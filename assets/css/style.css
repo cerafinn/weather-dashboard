@@ -23,6 +23,12 @@ header h1 {
   background-color: rgb(226, 226, 226);
 }
 
+.prev-city:hover {
+  background-color: rgb(40, 126, 255);
+  color: white;
+  cursor: pointer;
+}
+
 .future-weather {
   color: white;
   background-color: rgb(40, 126, 255);

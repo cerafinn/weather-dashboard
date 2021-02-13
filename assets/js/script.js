@@ -3,20 +3,23 @@ var apiKey = "e8e23b4a156b56df078fbb140bab8322";
 var userSearch = document.querySelector("#city-name");
 var searchForm = document.querySelector("#search-form");
 var prevCities = document.querySelector("#previous-cities");
+var prevCity = document.querySelector(".prev-city");
 
 var weatherContainer = document.querySelector("#currentCity");
 
-var cityArray = JSON.parse(localStorage.getItem("cityArray"));
-if(cityArray !== null) {
-  for(var i = 0; i< cityArray.length; i++) {
-    var searchHistory = document.createElement("li");
-    searchHistory.classList = "list-group-item";
-    searchHistory.textContent = cityArray[i];
-    prevCities.appendChild(searchHistory);
+var cityArray = JSON.parse(localStorage.getItem("cityArray")) || [];
+
+var searchHistory = function() {
+  if(cityArray !== null) {
+    prevCities.innerHTML = "";
+    for(var i = 0; i< cityArray.length; i++) {
+      var searchHistory = document.createElement("li");
+      searchHistory.classList = "list-group-item prev-city";
+      searchHistory.textContent = cityArray[i];
+      prevCities.appendChild(searchHistory);
+    }
   }
 }
-
-  // save search history in local storage and append to card list on left side
 
 var getWeather = function(city) {
   // format the weather api url
@@ -28,7 +31,6 @@ var getWeather = function(city) {
   .then(function(response) {
     if (response.ok) {
       response.json().then(function(data) {
-      console.log(data);
       displayWeather(data);
       });
     } else {
@@ -123,6 +125,13 @@ var displayFiveDay = function(forecast) {
   }
 }
 
+var previousSearch = function(event) {
+  event.preventDefault();
+
+  var cityName = prevCity.text();
+  getWeather(cityName);
+}
+
 var formSubmitHandler = function(event) {
   event.preventDefault();
 
@@ -133,14 +142,24 @@ var formSubmitHandler = function(event) {
     getWeather(cityName);
     userSearch.value = "";
 
-    if (cityArray == null) {
-      cityArray =[]
+    if (!cityArray.includes(cityName)) {
+      cityArray.push(cityName);
+      localStorage.setItem("cityArray", JSON.stringify(cityArray));
+      searchHistory()
     }
-    cityArray.push(cityName);
-    localStorage.setItem("cityArray", JSON.stringify(cityArray));
   } else {
     alert("Please enter a city name");
   }
 };
 
+searchHistory();
+
 searchForm.addEventListener("submit", formSubmitHandler);
+
+prevCities.addEventListener("click", function() {
+  if (event.target.matches("li")) {
+    getWeather(event.target.textContent)
+  }
+})
+
+getWeather("toronto");
