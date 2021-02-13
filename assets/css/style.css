@@ -20,13 +20,14 @@ header h1 {
 }
 
 .sidebar {
-  background-color: rgb(226, 226, 226);
+  background-color: rgb(230, 230, 230);
 }
 
 .prev-city:hover {
   background-color: rgb(40, 126, 255);
   color: white;
   cursor: pointer;
+  font-weight: bold;
 }
 
 .future-weather {
@@ -44,4 +45,17 @@ header h1 {
   border-radius: 3px;
 }
 
-/* Main style starts */
+@media(max-width: 768px) {
+  .sidebar {
+    padding-bottom: 5px
+  }
+
+  .main {
+    padding: 10px 0;
+  }
+
+  .weather-card {
+    flex: 0 0 50%;
+    padding: 12px;
+  }
+}
