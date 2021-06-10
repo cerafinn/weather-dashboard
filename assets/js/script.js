@@ -4,7 +4,6 @@ var userSearch = document.querySelector("#city-name");
 var searchForm = document.querySelector("#search-form");
 var prevCities = document.querySelector("#previous-cities");
 var prevCity = document.querySelector(".prev-city");
-
 var weatherContainer = document.querySelector("#currentCity");
 
 var cityArray = JSON.parse(localStorage.getItem("cityArray")) || [];
